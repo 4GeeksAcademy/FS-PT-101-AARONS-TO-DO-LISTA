@@ -19,8 +19,8 @@ export const TodoList=()=>{
             <input type="text" className="form-control fs-4" placeholder="Escribe una tarea..." value={task} onChange={e=>setTask(e.target.value)}/>
             <input type="submit" hidden/>
             </form>
-            <ul>
-                {list.map((el,index)=> <li className="d-flex justify-content-between fs-4" key={index}>{el.label}<span onClick={e=>handleDeleteTask(index)}><i class="fa-solid fa-delete-left"></i></span></li>)}
+            <ul className="list-unstyled">
+                {list.length===0?(<li className="fs-4 text-muted">No hay tareas, ¿Deseas añadir una?</li>):(list.map((el,index)=> <li className="d-flex justify-content-between fs-4 todo-item" key={index}>{el.label}<span className="delete-btn" onClick={e=>handleDeleteTask(index)}><i className="fa-solid fa-delete-left"></i></span></li>))}
             </ul>
         </div>
     )
